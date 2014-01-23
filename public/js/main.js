@@ -1,20 +1,27 @@
 $(function() {
 
-	var name = window.location.hash;
-	if(name) {
-		name = ', ' + name.substring(1) + ', ';
-	}
-	else {
-		name = ' ';
+	var messages = YAFA.messages;
+	if(!messages) {
+		var name = window.location.hash;
+		if(name) {
+			name = ' ' + name.substring(1) + ' ';
+		}
+		else {
+			name = ' ';
+		}
+		messages = ['Hey', 'Thanks for visiting', 'But you were given this url for a reason',
+					 'That reason is pretty simple' + name + '....', 'You are fkicng', 'You are effing Awesome!'];
 	}
 
 	var messageContainer = $("#message-span");
-	messageContainer.typed({
-		strings: ['Hey there', "How you doin'?", "You know what?", "You are fcinkg", "You" + name + "are effing Awesome!"],
-		typeSpeed: 100,
-		backDelay: 250,
-		callback: function() {
-			$("#footer-container").addClass("done");
-		}
-	});
+	if(messageContainer.length > 0) {
+		messageContainer.typed({
+			strings: messages,
+			typeSpeed: 100,
+			backDelay: 250,
+			callback: function() {
+				$("#footer-container").addClass("done");
+			}
+		});
+	}
 });

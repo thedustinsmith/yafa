@@ -1,3 +1,1 @@
-module.exports = function(app) {
-
-};
+exports.Message = require('./message').Message;

@@ -1,0 +1,14 @@
+extends layout
+block content
+	div#add-container
+		form(method="POST", action="")
+			div.text-wrappers
+				div.text-wrap
+					textarea.message-box(name='messages[]')
+				div.text-wrap
+					textarea.message-box(name='messages[]')
+
+			button(type="Submit") Create it!
+
+block scripts
+	script(src="/js/add.js");

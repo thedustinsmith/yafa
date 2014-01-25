@@ -45,7 +45,7 @@ fieldset {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
 }
 
 .chromeframe {
@@ -67,10 +67,10 @@ body {
 }
 
 body { 
-    font-family: 'Source Sans Pro', Verdana;
+    font-family: 'Open Sans Condensed', Verdana;
     font-weight: 300;
-    background-color: #844186;
-    color: #E69AE2;
+    background-color: #61185E;
+    color: #DEB1DB;
 }
 a {
     color: #bada55;
@@ -94,24 +94,64 @@ a {
 }
 
 #add-container {
-    width: 400px;
-    margin: 0 auto;
 }
 .text-wrap textarea {
     width: 400px;
     background: rgba(200, 200, 200, 0.3);
     height: 100px;
     font-size: 32px;
-    color: #E69AE2;
-    font-family: 'Source Sans Pro', Verdana;
+    color: #DEB1DB;
+    font-family: 'Open Sans Condensed', Verdana;
+    border: 1px solid rgba(222, 177, 219, 0.5)
 }
 .text-wrap {
     margin: 20px 0;
 }
+button {
+    border: 1px solid #DEB1DB;
+    border-radius: 3px;
+    padding: 10px 20px;
+    color: #61185E;
+    background-color: #bb73ac;
+    font-family: 'Source Sans Pro', Verdana;
+    font-weight: 300;
+    -webkit-transition: all .1s linear;
+}
+button:hover {
+    background-color: #A35994;
+    color: #fff;
+}
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #bb73ac;
+}
+#page-container {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+}
 
-
-
-
+#add-container,
+#result-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    -ms-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+}
+body #result-container {
+    opacity: 0;
+    font-size: 28px;
+    text-align: center;
+}
+body.result-show #add-container {
+    opacity: 0;
+}
+body.result-show #result-container {
+    opacity: 1;
+}
 
 
 /* ========================

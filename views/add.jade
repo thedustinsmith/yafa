@@ -1,14 +1,21 @@
 extends layout
 block content
-	div#add-container
-		form(method="POST", action="")
-			div.text-wrappers
-				div.text-wrap
-					textarea.message-box(name='messages[]')
-				div.text-wrap
-					textarea.message-box(name='messages[]')
+	div#page-container
+		div#add-container
+			p Just type your message in the boxes below.  Each box's text will show up separately.
+			form#add-form(method="POST", action="add")
+				div.text-wrappers
+					div.text-wrap
+						textarea.message-box(name='messages[]')
+					div.text-wrap
+						textarea.message-box(name='messages[]')
 
-			button(type="Submit") Create it!
+				button(type="Submit") Create it!
+
+		div#result-container
+			span.result-intro Awesome, your message is ready.  Just share this link!
+			br
+			a.result-link(href="http://localhost:8000/") http://youarefuckingawesome.com/
 
 block scripts
 	script(src="/js/add.js");

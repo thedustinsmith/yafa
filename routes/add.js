@@ -20,7 +20,16 @@ module.exports = function(app) {
 			newMessage.save();
 		}
 		console.log(id);
-		res.render('add', {});
+
+		res.writeHead(200, { 'Content-Type': 'application/json' }); 
+		res.write(JSON.stringify({
+			success: true,
+			data: {
+				id: id
+			}
+		}));
+		res.end();
+		//res.render('add', {});
 	});
 
 	function generateID(length) {

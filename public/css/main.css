@@ -163,7 +163,7 @@ body.result-show #result-container {
     font-size: 64px;
     text-shadow: 2px 2px 0 black;
     height: 400px;
-    line-height: 400px;
+    line-height: 250px;
 }
 #teaser-container p {
     margin: 0;

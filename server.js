@@ -22,7 +22,7 @@ app.configure(function(){
 });
 
 app.globals = {};
-app.globals.SHOW_TEASER = false;
+app.globals.SHOW_TEASER = true;
 app.globals.APP_URL = isProduction ? 'http://youarefuckingawesome.com' : 'http://localhost:8000';
 require('./routes')(app);
 

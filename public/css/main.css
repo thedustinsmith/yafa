@@ -75,6 +75,10 @@ body {
 a {
     color: #bada55;
 }
+#page {
+    width: 800px;
+    margin: 0 auto;
+}
 #message-container {
     font-size: 84px;
     width: 85%;
@@ -152,10 +156,22 @@ body.result-show #add-container {
 body.result-show #result-container {
     opacity: 1;
 }
+#teaser-container {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 64px;
+    text-shadow: 2px 2px 0 black;
+    height: 400px;
+    line-height: 400px;
+}
+#teaser-container p {
+    margin: 0;
+}
 
 
 /* ========================
-    Plugin Classes
+    Plugin Styles
     ========================= */
 #typed-cursor{
     opacity: 1;

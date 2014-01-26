@@ -2,15 +2,19 @@ var db = require('../models');
 
 module.exports = function(app) {
 
+    if (!!app.globals.SHOW_TEASER) {
+        app.get('*', function (req, res) {
+            res.render('teaser', {});
+        });
+        console.log('teasing');
+        return;
+    }
+
 	app.get('/', function(req, res) {
         res.render('index', { });
     });
 
     require('./add')(app);
-
-
-
-
 
 	// This needs to be last
 	// it's a fallback

@@ -7,7 +7,6 @@ module.exports = function(app) {
 	});
 
 	app.post('/add', function(req, res) {
-		console.log(req.body.messages);
 		var id = generateID();
 		var messages = req.body.messages;
 		for (var i=0; i<messages.length; i++) {
@@ -19,17 +18,16 @@ module.exports = function(app) {
 			});
 			newMessage.save();
 		}
-		console.log(id);
 
 		res.writeHead(200, { 'Content-Type': 'application/json' }); 
 		res.write(JSON.stringify({
 			success: true,
 			data: {
-				id: id
+				id: id,
+				shareUrl: app.globals.APP_URL + '/' + id
 			}
 		}));
 		res.end();
-		//res.render('add', {});
 	});
 
 	function generateID(length) {

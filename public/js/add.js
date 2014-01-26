@@ -15,7 +15,7 @@ $(function() {
 		$.post(form.attr("action"), 
 			form.serialize(), 
 			function (resp) {
-				showResult(resp.data.id);
+				showResult(resp.data.shareUrl);
 			});
 
 	});
@@ -23,9 +23,8 @@ $(function() {
 	//var addContainer = $("#add-container");
 	var resultContainer = $("#result-container");
 	var resultLink = resultContainer.find(".result-link");
-	function showResult(id) {
+	function showResult(url) {
 		$("body").addClass("result-show");
-		var href = resultLink.attr('href') + id;
-		resultLink.attr('href', href).text(href);
+		resultLink.attr('href', url).text(url);
 	}
 });

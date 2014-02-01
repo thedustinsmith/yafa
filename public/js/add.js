@@ -10,7 +10,6 @@ $(function() {
 	var form = $("#add-form");
 	form.find("button").on('click', function (ev) {
 		ev.preventDefault();
-		//var formJson = form.serialize();
 
 		$.post(form.attr("action"), 
 			form.serialize(), 
@@ -18,6 +17,14 @@ $(function() {
 				showResult(resp.data.shareUrl);
 			});
 
+	});
+
+	$(".color-picker").spectrum({
+		change: function(color) {
+			var hex = color.toHexString();
+			$(this).val(hex);
+			$("body").css($(this).data("cssprop"), hex);
+		}
 	});
 
 	//var addContainer = $("#add-container");

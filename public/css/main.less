@@ -3,8 +3,7 @@
 @import "plugins/plugins.less";
 
 
-html,
-body {
+html,body{
     min-height: 100%;
     height: 100%;
 }
@@ -19,6 +18,7 @@ a {
 #mini-banner {
 
   position: fixed;
+  z-index: 10;
 
   text-align: center;
   text-transform: uppercase;
@@ -74,7 +74,8 @@ a {
     right: 0;
     opacity: 0;
     text-align: center;
-    -webkit-transition: opacity 1s linear;
+    background: rgba(0, 0, 0, 0.4);
+    .transition(opacity 1s linear);
 }
 #footer-container.done {
     opacity: 1;
@@ -88,11 +89,12 @@ a {
 }
 .text-wrap textarea {
     width: 100%;
-    background: fade(@lightMedium, 40);
+    background: rgba(255, 255, 255, 0.1);
     height: 100px;
     font-size: 32px;
-    color: @text;
-    border: 1px solid fade(@text, 75);
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 1px #555;
 }
 .text-wrap {
     margin: 20px 0;
@@ -111,28 +113,35 @@ button:hover {
 }
 textarea:focus {
     outline: none;
-    box-shadow: 0 0 10px #bb73ac;
 }
 #page-container {
     position: relative;
 }
-#add-container,
-#result-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    .transition(opacity 1s linear);
+#result-container a {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+}
+.add-page-inner {
+  width: 500px;
+  margin: 0 auto;
+  max-width: 75%;
 }
 body #result-container {
     opacity: 0;
     font-size: 28px;
     text-align: center;
+    z-index: -1;
+    display: none;
 }
 body.result-show #add-container {
+    display: none;
     opacity: 0;
+    z-index: -1;
 }
 body.result-show #result-container {
     opacity: 1;
+    z-index: 1;
+    display: block;
 }
 
 

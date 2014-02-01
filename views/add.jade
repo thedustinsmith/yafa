@@ -1,7 +1,7 @@
 extends layout
 block content
-	div#page-container
-		div#add-container
+	div#add-container
+		div.add-page-inner
 			p Just type your message in the boxes below.  Each box's text will show up separately.
 			form#add-form(method="POST", action="add")
 				div.text-wrappers
@@ -10,12 +10,22 @@ block content
 					div.text-wrap
 						textarea.message-box(name='messages[]')
 
-				button(type="Submit") Create it!
+				div.submit-container
+					div.color-container
+						label Background:
+							input.color-picker(type='text', name='messageBG', data-cssprop='background')
 
-		div#result-container
+					div.color-container
+						label Text:
+							input.color-picker(type='text', name='messageColor', data-cssprop='color')
+					button(type="Submit") Create it!
+
+	div#result-container
+		div.add-page-inner
 			span.result-intro Awesome, your message is ready.  Just share this link!
 			br
 			a.result-link(href="http://localhost:8000/") http://youarefuckingawesome.com/
 
 block scripts
+	script(src="js/vendor/spectrum.js");
 	script(src="/js/add.js");

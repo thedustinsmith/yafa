@@ -4,7 +4,9 @@ var mongoose = require('mongoose'),
 var MessageSchema = new mongoose.Schema({
 	groupID: String,
 	message: String,
-	sort: Number
+	sort: Number,
+	bgColor: String,
+	textColor: String
 });
 
 MessageSchema.statics = {

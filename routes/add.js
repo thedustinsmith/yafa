@@ -7,14 +7,19 @@ module.exports = function(app) {
 	});
 
 	app.post('/add', function(req, res) {
-		var id = generateID();
-		var messages = req.body.messages;
+		var id = generateID(),
+			messages = req.body.messages,
+			messageBG = req.body.messageBG,
+			messageColor = req.body.messageColor;
+
 		for (var i=0; i<messages.length; i++) {
 			var m = messages[i];
 			var newMessage = new db.Message({
 				groupID: id,
 				message: m,
-				sort: i
+				sort: i,
+				bgColor: messageBG,
+				textColor: messageColor
 			});
 			newMessage.save();
 		}

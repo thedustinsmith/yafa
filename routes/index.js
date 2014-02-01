@@ -34,7 +34,9 @@ module.exports = function(app) {
     		});
 
     		res.render('view', {
-    			messages: JSON.stringify(sortedMessages)
+    			messages: sortedMessages,
+                bgColor: messages[0].bgColor,
+                textColor: messages[0].textColor
     		});
     	});
     });

@@ -1,16 +1,16 @@
 $(function() {
 
-	var messages = YAFA.messages;
-	if(!messages) {
-		var name = window.location.hash;
-		if(name) {
-			name = ' ' + name.substring(1) + ' ';
-		}
-		else {
-			name = ' ';
+	var messages = $("#msg-holder span").remove().map(function() {
+		return $(this).text();
+	});
+
+	if (messages.length === 0) {
+		var name = ' ';
+		if (window.location.hash) {
+			name = window.location.hash.substring(1);
 		}
 		messages = ['Hey', 'Thanks for visiting', 'But you were given this url for a reason',
-					 'That reason is pretty simple' + name + '....', 'You are fkicng', 'You are effing Awesome!'];
+			 'That reason is pretty simple' + name + '....', 'You are fkicng', 'You are effing Awesome!'];
 	}
 
 	var messageContainer = $("#message-span");

@@ -20,12 +20,13 @@ app.configure(function(){
   app.use(require('less-middleware')({ 
     src: path.join(__dirname, 'public'), 
     compress: isProduction
-   }));
+  }));
   app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
   app.use(app.router);
 });
+
 app.globals = {};
-app.globals.SHOW_TEASER = true;
+app.globals.SHOW_TEASER = isProduction; //false;
 app.globals.APP_URL = isProduction ? 'http://youarefuckingawesome.com' : 'http://localhost:8000';
 
 app.locals.slogan = "You are effing awesome!";

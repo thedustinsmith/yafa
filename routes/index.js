@@ -2,6 +2,7 @@ var db = require('../models');
 
 module.exports = function(app) {
 
+    /* Teaser page - can be removed after go live */
     if (!!app.globals.SHOW_TEASER) {
         app.get('*', function (req, res) {
             res.render('teaser', {});
@@ -10,14 +11,16 @@ module.exports = function(app) {
         return;
     }
 
+
 	app.get('/', function(req, res) {
         res.render('index', { });
     });
 
     require('./add')(app);
+    require('./custom')(app);
 
-	// This needs to be last
-	// it's a fallback
+
+	/* This has to be the last route registered.  As a fallback */
     app.get('/:group', function(req, res) {
     	var groupID = req.param('group');
 
@@ -25,10 +28,10 @@ module.exports = function(app) {
     		if (err) throw err;
 
     		var sortedMessages =  messages.sort(function(m1, m2) {
-				return m1.sort > m2.sort ? 1 : -1;
-			}).map(function(m) {
-				return m.message;
-			});
+    			return m1.sort > m2.sort ? 1 : -1;
+    		}).map(function(m) {
+    			return m.message;
+    		});
 
     		res.render('view', {
     			messages: JSON.stringify(sortedMessages)

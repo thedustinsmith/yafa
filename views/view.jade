@@ -1,5 +1,9 @@
 extends layout
 block content
+	div#msg-holder
+		each message in messages
+			span= message
+
 	div#message-container
 		span#message-span
 
@@ -8,4 +12,4 @@ block content
 
 block scripts
 	script
-		YAFA.messages = !{messages};
+		//YAFA.messages = !{messages};

@@ -10,15 +10,19 @@ block content
 					div.text-wrap
 						textarea.message-box(name='messages[]')
 
-				div.submit-container
-					div.color-container
-						label Background:
-							input.color-picker(type='text', name='messageBG', data-cssprop='background')
-
-					div.color-container
-						label Text:
-							input.color-picker(type='text', name='messageColor', data-cssprop='color')
-					button(type="Submit") Create it!
+				div.submit-container.clearfix
+					div.submit-left
+						table.color-selectors
+							tr
+								th Background:
+								td
+									input.color-picker(type='text', name='messageBG', data-cssprop='background')
+							tr
+								th Text:
+								td
+									input.color-picker(type='text', name='messageColor', data-cssprop='color')
+					div.submit-right
+						button(type="Submit") Create it!
 
 	div#result-container
 		div.add-page-inner

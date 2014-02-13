@@ -3,7 +3,6 @@ var express = require('express'),
     http = require('http'),
     path = require('path');
 
-//test commit
 
 var isProduction = (process.env.NODE_ENV === 'production'),
     port = (isProduction ? 7000 : 8000);

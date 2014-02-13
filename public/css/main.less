@@ -11,9 +11,6 @@ body {
     background-color: @main;
     color: @text;
 }
-a {
-    color: @link;
-}
 #banner,
 #mini-banner {
 
@@ -29,6 +26,10 @@ a {
   box-shadow: 0 0 10px @text;
   background: @lightMedium;
   border: 1px solid @text;
+
+  a {
+    text-decoration: none;
+  }
 }
 #banner {
   height:40px;
@@ -116,7 +117,10 @@ textarea:focus {
 }
 #result-container a {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-shadow: 0 0 1px black;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
 }
 .add-page-inner {
   width: 500px;
@@ -149,6 +153,19 @@ body.result-show #result-container {
   padding-right: 10px;
 }
 
+.create-link {
+  opacity: 0;
+  text-decoration: none;
+  .transition(opacity 2s linear);
+  color: black;
+  text-shadow: 0 0 2px white;
+}
+.create-link:hover {
+  border-bottom: 1px solid black;
+}
+.create-link.show {
+  opacity: 1;
+}
 
 
 /* Teaser CSS */

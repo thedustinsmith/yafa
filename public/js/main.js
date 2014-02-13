@@ -13,6 +13,7 @@ $(function() {
 			 'That reason is pretty simple' + name + '....', 'You are fkicng', 'You are effing Awesome!'];
 	}
 
+	var createLink = "<a href='/add' class='create-link'>Make your own</a>";
 	var messageContainer = $("#message-span");
 	if(messageContainer.length > 0) {
 		messageContainer.typed({
@@ -20,7 +21,11 @@ $(function() {
 			typeSpeed: 100,
 			backDelay: 250,
 			callback: function() {
-				$("#footer-container").addClass("done");
+				var $cl = $(createLink);
+				$("<div />").appendTo($("#message-container")).append($cl);
+				setTimeout(function() {
+					$cl.addClass('show');
+				}, 250);
 			}
 		});
 	}
